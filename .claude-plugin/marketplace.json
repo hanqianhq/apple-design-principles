@@ -1,0 +1,14 @@
+{
+  "name": "apple-design-principles",
+  "description": "Apple-style design and copy review skill for app and web UI, UX copy and marketing copy (English and Chinese).",
+  "owner": {
+    "name": "hanqianhq"
+  },
+  "plugins": [
+    {
+      "name": "apple-design-principles",
+      "source": "./",
+      "description": "Apple-style design and copy review for app and web UI, UX copy, landing pages and keynotes, in English and Chinese."
+    }
+  ]
+}

@@ -1,0 +1,633 @@
+{
+  "iteration": "iteration-1",
+  "configs": {
+    "old_skill": {
+      "evals": {
+        "ios-settings-review": {
+          "passed": 8,
+          "total": 8,
+          "expectations": [
+            {
+              "text": "severity",
+              "passed": true,
+              "evidence": "P0; P1"
+            },
+            {
+              "text": "44pt",
+              "passed": true,
+              "evidence": "44\\s*[×x]\\s*44\\s*pt; 44pt"
+            },
+            {
+              "text": "thin-small-text",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "grouping",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "instant-apply",
+              "passed": true,
+              "evidence": "即时生效|立即生效|去掉.{0,4}保存|删掉.{0,4}保存"
+            },
+            {
+              "text": "on-off",
+              "passed": true,
+              "evidence": "打开\\s*/\\s*关闭|「打开」"
+            },
+            {
+              "text": "settings-deeplink",
+              "passed": true,
+              "evidence": "前往设置|打开设置|Open Settings"
+            },
+            {
+              "text": "rewritten-copy",
+              "passed": true,
+              "evidence": "改后|→"
+            }
+          ]
+        },
+        "web-landing-hero": {
+          "passed": 4,
+          "total": 7,
+          "expectations": [
+            {
+              "text": "web-units",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "one-primary-cta",
+              "passed": true,
+              "evidence": "(one|single|一个)\\s*(primary|主); 主按钮"
+            },
+            {
+              "text": "headline-options",
+              "passed": true,
+              "evidence": "(直白版|Plain|Option 1|Option A)[\\s\\S]{0,600}(巧思版|Clever|Option 2|Option B)"
+            },
+            {
+              "text": "carousel",
+              "passed": false,
+              "evidence": "missing: [Pp]ause|stop|暂停|2\\.2\\.2"
+            },
+            {
+              "text": "contrast",
+              "passed": true,
+              "evidence": "4\\.5\\s*:\\s*1"
+            },
+            {
+              "text": "target-24",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "accessible-name",
+              "passed": true,
+              "evidence": "aria-label|accessible name|可访问名称|读屏"
+            }
+          ]
+        },
+        "web-tool-asset-library": {
+          "passed": 8,
+          "total": 10,
+          "expectations": [
+            {
+              "text": "fake-data",
+              "passed": true,
+              "evidence": "写死|示例数据|假数据|真实数据"
+            },
+            {
+              "text": "count-pagination",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "danger",
+              "passed": false,
+              "evidence": "missing: 撤销|回收站|恢复; missing: 确认"
+            },
+            {
+              "text": "long-task",
+              "passed": false,
+              "evidence": "missing: 后台|刷新后|通知"
+            },
+            {
+              "text": "billing",
+              "passed": true,
+              "evidence": "扣.{0,6}(多少|点数).{0,20}(之前|前|预估|显示); 用量记录|消费记录|消耗多少|将消耗"
+            },
+            {
+              "text": "glossary",
+              "passed": true,
+              "evidence": "术语表|词表|glossary"
+            },
+            {
+              "text": "promise",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "references",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "permissions",
+              "passed": true,
+              "evidence": "权限.{0,20}(隐藏|置灰|不显示|说明原因)|(隐藏|不显示).{0,20}权限"
+            },
+            {
+              "text": "severity",
+              "passed": true,
+              "evidence": "P0"
+            }
+          ]
+        },
+        "empty-error-dialog-notification-copy": {
+          "passed": 8,
+          "total": 8,
+          "expectations": [
+            {
+              "text": "four-states",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "bilingual",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "no-oops",
+              "passed": true,
+              "evidence": "none found"
+            },
+            {
+              "text": "safe",
+              "passed": true,
+              "evidence": "still on (your|this) (phone|iPhone|device)|safe on|仍在手机|还在手机|安全"
+            },
+            {
+              "text": "specific-buttons",
+              "passed": true,
+              "evidence": "Delete Album; 删除相簿"
+            },
+            {
+              "text": "photos-stay",
+              "passed": true,
+              "evidence": "stay in|remain in|留在|仍在.{0,4}(图库|照片)"
+            },
+            {
+              "text": "notification-number",
+              "passed": true,
+              "evidence": "1,200|1200"
+            },
+            {
+              "text": "no-we",
+              "passed": true,
+              "evidence": "none found"
+            }
+          ]
+        },
+        "keynote-and-product-page-hero": {
+          "passed": 7,
+          "total": 7,
+          "expectations": [
+            {
+              "text": "bilingual-hero",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "subhead",
+              "passed": true,
+              "evidence": "副标|Subhead|subhead|Sub:"
+            },
+            {
+              "text": "cta",
+              "passed": true,
+              "evidence": "按钮|CTA|Buy|购买|预订|Pre-order"
+            },
+            {
+              "text": "keynote-structure",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "footnote",
+              "passed": true,
+              "evidence": "脚注|¹|footnote"
+            },
+            {
+              "text": "specs-moved",
+              "passed": true,
+              "evidence": "规格页|放到.{0,6}(后面|最后|规格)|证据|spec"
+            },
+            {
+              "text": "no-superlative",
+              "passed": true,
+              "evidence": "none found"
+            }
+          ]
+        },
+        "localization-transcreation": {
+          "passed": 5,
+          "total": 5,
+          "expectations": [
+            {
+              "text": "device",
+              "passed": true,
+              "evidence": "对仗|四字|同字|双关|谐音|parallel|pun"
+            },
+            {
+              "text": "ad-law",
+              "passed": true,
+              "evidence": "广告法|极限词|最高级|Advertising Law|superlative"
+            },
+            {
+              "text": "footnote",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "button-verb",
+              "passed": true,
+              "evidence": "购买|选购|立即购买|买一个"
+            },
+            {
+              "text": "spacing",
+              "passed": true,
+              "evidence": "空格|间距|混排|spacing|space between"
+            }
+          ]
+        },
+        "cross-platform-specs": {
+          "passed": 2,
+          "total": 8,
+          "expectations": [
+            {
+              "text": "ios-44",
+              "passed": true,
+              "evidence": "44\\s*[×x]\\s*44\\s*pt|44pt"
+            },
+            {
+              "text": "web-24",
+              "passed": false,
+              "evidence": "missing: 24\\s*[×x]\\s*24; missing: 2\\.5\\.8"
+            },
+            {
+              "text": "aaa-44",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "contrast",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "non-text",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "reduced-motion",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "focus",
+              "passed": false,
+              "evidence": "missing: 2\\.4\\.7|焦点可见|focus-visible; missing: 2\\.4\\.11|遮挡"
+            },
+            {
+              "text": "sources",
+              "passed": false,
+              "evidence": ""
+            }
+          ]
+        }
+      },
+      "passed": 42,
+      "total": 53,
+      "pass_rate": 0.792
+    },
+    "without_skill": {
+      "evals": {
+        "ios-settings-review": {
+          "passed": 5,
+          "total": 8,
+          "expectations": [
+            {
+              "text": "severity",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "44pt",
+              "passed": true,
+              "evidence": "44\\s*[×x]\\s*44\\s*pt; 44pt"
+            },
+            {
+              "text": "thin-small-text",
+              "passed": false,
+              "evidence": "missing: (动态字体|Dynamic Type|Regular)"
+            },
+            {
+              "text": "grouping",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "instant-apply",
+              "passed": true,
+              "evidence": "即时生效|立即生效|去掉.{0,4}保存|删掉.{0,4}保存"
+            },
+            {
+              "text": "on-off",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "settings-deeplink",
+              "passed": true,
+              "evidence": "前往设置|打开设置|Open Settings"
+            },
+            {
+              "text": "rewritten-copy",
+              "passed": true,
+              "evidence": "改后|→"
+            }
+          ]
+        },
+        "web-landing-hero": {
+          "passed": 4,
+          "total": 7,
+          "expectations": [
+            {
+              "text": "web-units",
+              "passed": true,
+              "evidence": "WCAG"
+            },
+            {
+              "text": "one-primary-cta",
+              "passed": true,
+              "evidence": "primary (button|CTA)"
+            },
+            {
+              "text": "headline-options",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "carousel",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "contrast",
+              "passed": true,
+              "evidence": "4\\.5\\s*:\\s*1"
+            },
+            {
+              "text": "target-24",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "accessible-name",
+              "passed": false,
+              "evidence": ""
+            }
+          ]
+        },
+        "web-tool-asset-library": {
+          "passed": 8,
+          "total": 10,
+          "expectations": [
+            {
+              "text": "fake-data",
+              "passed": true,
+              "evidence": "写死|示例数据|假数据|真实数据"
+            },
+            {
+              "text": "count-pagination",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "danger",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "long-task",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "billing",
+              "passed": true,
+              "evidence": "用量记录|消费记录|消耗多少|将消耗"
+            },
+            {
+              "text": "glossary",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "promise",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "references",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "permissions",
+              "passed": true,
+              "evidence": "权限.{0,20}(隐藏|置灰|不显示|说明原因)|(隐藏|不显示).{0,20}权限"
+            },
+            {
+              "text": "severity",
+              "passed": false,
+              "evidence": ""
+            }
+          ]
+        },
+        "empty-error-dialog-notification-copy": {
+          "passed": 6,
+          "total": 8,
+          "expectations": [
+            {
+              "text": "four-states",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "bilingual",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "no-oops",
+              "passed": true,
+              "evidence": "none found"
+            },
+            {
+              "text": "safe",
+              "passed": true,
+              "evidence": "still on (your|this) (phone|iPhone|device)|safe on|仍在手机|还在手机|安全"
+            },
+            {
+              "text": "specific-buttons",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "photos-stay",
+              "passed": true,
+              "evidence": "stay in|remain in|留在|仍在.{0,4}(图库|照片)"
+            },
+            {
+              "text": "notification-number",
+              "passed": true,
+              "evidence": "1,200|1200"
+            },
+            {
+              "text": "no-we",
+              "passed": false,
+              "evidence": "found: \\bwe\\b; found: 我们"
+            }
+          ]
+        },
+        "keynote-and-product-page-hero": {
+          "passed": 5,
+          "total": 7,
+          "expectations": [
+            {
+              "text": "bilingual-hero",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "subhead",
+              "passed": true,
+              "evidence": "副标|Subhead|subhead|Sub:"
+            },
+            {
+              "text": "cta",
+              "passed": true,
+              "evidence": "按钮|CTA|Buy|购买|预订|Pre-order"
+            },
+            {
+              "text": "keynote-structure",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "footnote",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "specs-moved",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "no-superlative",
+              "passed": true,
+              "evidence": "none found"
+            }
+          ]
+        },
+        "localization-transcreation": {
+          "passed": 4,
+          "total": 5,
+          "expectations": [
+            {
+              "text": "device",
+              "passed": true,
+              "evidence": "对仗|四字|同字|双关|谐音|parallel|pun"
+            },
+            {
+              "text": "ad-law",
+              "passed": true,
+              "evidence": "广告法|极限词|最高级|Advertising Law|superlative"
+            },
+            {
+              "text": "footnote",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "button-verb",
+              "passed": true,
+              "evidence": "购买|选购|立即购买|买一个"
+            },
+            {
+              "text": "spacing",
+              "passed": false,
+              "evidence": ""
+            }
+          ]
+        },
+        "cross-platform-specs": {
+          "passed": 3,
+          "total": 8,
+          "expectations": [
+            {
+              "text": "ios-44",
+              "passed": true,
+              "evidence": "44\\s*[×x]\\s*44\\s*pt|44pt"
+            },
+            {
+              "text": "web-24",
+              "passed": false,
+              "evidence": "missing: 24\\s*[×x]\\s*24; missing: 2\\.5\\.8"
+            },
+            {
+              "text": "aaa-44",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "contrast",
+              "passed": true,
+              "evidence": "all matched"
+            },
+            {
+              "text": "non-text",
+              "passed": false,
+              "evidence": ""
+            },
+            {
+              "text": "reduced-motion",
+              "passed": true,
+              "evidence": "prefers-reduced-motion"
+            },
+            {
+              "text": "focus",
+              "passed": false,
+              "evidence": "missing: 2\\.4\\.11|遮挡"
+            },
+            {
+              "text": "sources",
+              "passed": false,
+              "evidence": ""
+            }
+          ]
+        }
+      },
+      "passed": 35,
+      "total": 53,
+      "pass_rate": 0.66
+    }
+  }
+}

@@ -1,0 +1,12 @@
+{
+  "name": "apple-design-principles",
+  "version": "2.0.0",
+  "description": "Apple-style design and copy review for app and web UI, UX copy, landing pages and keynotes, in English and Chinese. Covers HIG, WCAG 2.2, SaaS/tool UI and transcreation.",
+  "author": {
+    "name": "hanqianhq"
+  },
+  "homepage": "https://github.com/hanqianhq/apple-design-principles",
+  "repository": "https://github.com/hanqianhq/apple-design-principles",
+  "license": "CC-BY-4.0",
+  "keywords": ["design", "ui", "ux-writing", "copywriting", "accessibility", "wcag", "hig", "localization", "skills"]
+}

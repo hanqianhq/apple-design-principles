@@ -1,0 +1,539 @@
+{
+  "skill_name": "apple-design-principles",
+  "version": "2.0.0",
+  "notes": "All products, screens and copy are fictional and written for this eval set. 'checks' is a machine-gradable mirror of 'assertions' used by evals/grade.py (regex over the output text). 'manual' checks are graded by a human/LLM reviewer and recorded with evidence.",
+  "evals": [
+    {
+      "id": 1,
+      "name": "ios-settings-review",
+      "prompt": "帮我按苹果的标准审一下我们 iOS 健身 App「Stride」的设置页：一屏平铺 18 个开关，没有分组；标签写的是「Enable 心率提醒」「启用 GPS 增强（实验性）」；每个开关下面有 12pt Light 灰色说明；右上角有个 30×30pt 的「保存」按钮，不点保存直接返回会丢改动；要定位权限时写的是「请前往 设置>隐私>定位服务 开启」。给问题清单和改法。",
+      "expected_output": "按 P0/P1/P2 分级的问题表，引用 iOS 口径（44pt 触控、动态字体、最小字号、细字重），给分组/渐进披露、即时生效、标签与说明改写、权限直达按钮，并给改后文案。",
+      "files": [],
+      "assertions": [
+        "Uses a prioritized issue list (P0/P1/P2 or equivalent severity)",
+        "Flags the 30pt save button against the 44×44pt iOS minimum",
+        "Flags 12pt Light gray text (thin weight / Dynamic Type / contrast)",
+        "Proposes grouping + progressive disclosure for 18 toggles",
+        "Proposes changes apply immediately (remove Save)",
+        "Rewrites 'Enable/启用' as 打开/关闭 and removes mixed-language labels",
+        "Replaces the manual settings path with a direct 'Open Settings/前往设置' button",
+        "Gives concrete rewritten label/description copy"
+      ],
+      "checks": [
+        {
+          "id": "severity",
+          "type": "regex_any",
+          "patterns": [
+            "P0",
+            "P1",
+            "阻断"
+          ]
+        },
+        {
+          "id": "44pt",
+          "type": "regex_any",
+          "patterns": [
+            "44\\s*[×x]\\s*44\\s*pt",
+            "44pt"
+          ]
+        },
+        {
+          "id": "thin-small-text",
+          "type": "regex_all",
+          "patterns": [
+            "(Light|细字重|细字)",
+            "(动态字体|Dynamic Type|Regular)"
+          ]
+        },
+        {
+          "id": "grouping",
+          "type": "regex_all",
+          "patterns": [
+            "分组|分成.组",
+            "高级|二级页|渐进披露"
+          ]
+        },
+        {
+          "id": "instant-apply",
+          "type": "regex_any",
+          "patterns": [
+            "即时生效|立即生效|去掉.{0,4}保存|删掉.{0,4}保存"
+          ]
+        },
+        {
+          "id": "on-off",
+          "type": "regex_any",
+          "patterns": [
+            "打开\\s*/\\s*关闭|「打开」"
+          ]
+        },
+        {
+          "id": "settings-deeplink",
+          "type": "regex_any",
+          "patterns": [
+            "前往设置|打开设置|Open Settings"
+          ]
+        },
+        {
+          "id": "rewritten-copy",
+          "type": "regex_any",
+          "patterns": [
+            "改后|→"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 2,
+      "name": "web-landing-hero",
+      "prompt": "Can you review the hero of our marketing site for Lingo (an AI meeting-translation SaaS) and make it feel more Apple? Current hero: headline 'The Next-Generation AI-Powered Omnichannel Translation Platform Empowering Global Enterprises'; two equally loud buttons 'Start Free Trial' and 'Book a Demo'; an auto-playing carousel of 5 slides that never stops; body text #A0A0A0 on white at 13px; icon-only social links that are 18×18 px. It's a website, not an app.",
+      "expected_output": "Web-specific review: one primary CTA, benefit-led short headline with plain subhead, removes buzzwords, carousel pause/stop (WCAG 2.2.2), contrast 4.5:1 for body text, target size 24×24 CSS px (WCAG 2.5.8 AA), accessible names for icon links, and rewritten copy options.",
+      "files": [],
+      "assertions": [
+        "Treats it as a web/marketing (persuade) surface, using CSS px / WCAG, not iOS pt",
+        "Recommends one primary CTA and a secondary link",
+        "Rewrites the headline into a short, benefit-led line plus a plain subhead (at least 2 options)",
+        "Flags the auto-playing carousel and requires pause/stop or removal",
+        "Flags #A0A0A0 body text contrast against 4.5:1",
+        "Flags 18px icon targets against 24×24 CSS px (WCAG 2.5.8)",
+        "Requires accessible names/labels for icon-only links"
+      ],
+      "checks": [
+        {
+          "id": "web-units",
+          "type": "regex_any",
+          "patterns": [
+            "CSS\\s*px",
+            "WCAG"
+          ]
+        },
+        {
+          "id": "one-primary-cta",
+          "type": "regex_any",
+          "patterns": [
+            "(one|single|一个)\\s*(primary|主)",
+            "primary (button|CTA)",
+            "主按钮"
+          ]
+        },
+        {
+          "id": "headline-options",
+          "type": "regex_any",
+          "patterns": [
+            "(直白版|Plain|Option 1|Option A)[\\s\\S]{0,600}(巧思版|Clever|Option 2|Option B)",
+            "^- \"[^\"]+\"\\s*\\n- \""
+          ]
+        },
+        {
+          "id": "carousel",
+          "type": "regex_all",
+          "patterns": [
+            "[Cc]arousel|轮播",
+            "[Pp]ause|stop|暂停|2\\.2\\.2"
+          ]
+        },
+        {
+          "id": "contrast",
+          "type": "regex_any",
+          "patterns": [
+            "4\\.5\\s*:\\s*1"
+          ]
+        },
+        {
+          "id": "target-24",
+          "type": "regex_any",
+          "patterns": [
+            "24\\s*[×x]\\s*24",
+            "2\\.5\\.8"
+          ]
+        },
+        {
+          "id": "accessible-name",
+          "type": "regex_any",
+          "patterns": [
+            "aria-label|accessible name|可访问名称|读屏"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 3,
+      "name": "web-tool-asset-library",
+      "prompt": "我们在做一个给小型印刷工作室用的 Web 资产管理工具「Crate」（模板、字体、客户 Logo 都是资产，订单会引用这些资产）。现在的问题我列一下，你按苹果式标准帮我做个审查：1）首页「最近动态」是开发时写死的示例数据；2）资产列表顶部写「共 128 个」，但筛选后表格空了，页码还显示 1/13；3）「全部删除」按钮红色，紧挨着「导出」，点了直接删；4）导出 2GB 素材包时按钮转圈，没有进度，刷新后不知道还在不在跑；5）每次导出扣「点数」，但页面上看不到会扣多少；6）同一个东西有时叫「素材」有时叫「资产」有时叫「文件」；7）官网写「免费注册即可使用」，注册页却写「仅限邀请」；8）模板卡片显示「0 次引用」，但其实有 6 个订单在用；9）普通成员能看到「删除工作区」按钮，点了才提示没权限。",
+      "expected_output": "按工具类（Operate）口径分级审查：数据真实、计数与分页一致、危险操作（确认+撤销/回收站+影响范围）、长任务（进度+后台+可恢复+完成通知）、计费透明、术语表、承诺与能力一致、引用关系可见可跳转、权限前置隐藏或说明；Web 无障碍口径；给改后界面文案。",
+      "files": [],
+      "assertions": [
+        "Identifies the surface as an operational tool and prioritizes truthfulness/task completion over visual polish",
+        "Removes hardcoded demo data (real data or honest empty state)",
+        "Fixes count/pagination consistency after filtering",
+        "Danger zone: separates delete-all from export, confirmation naming scope, undo or trash/recovery",
+        "Long-running export: visible progress, survives refresh/background, completion notice",
+        "Billing transparency: show cost before action and a usage record",
+        "Proposes a glossary (one term per concept)",
+        "Aligns marketing promise with actual signup availability",
+        "Shows accurate asset reference counts with links to referencing orders, warns before deleting referenced assets",
+        "Permissions: hide or disable-with-reason before click",
+        "Uses a severity-ranked table and gives rewritten UI copy"
+      ],
+      "checks": [
+        {
+          "id": "fake-data",
+          "type": "regex_any",
+          "patterns": [
+            "写死|示例数据|假数据|真实数据"
+          ]
+        },
+        {
+          "id": "count-pagination",
+          "type": "regex_all",
+          "patterns": [
+            "数量|计数|128",
+            "页码|分页|1/13"
+          ]
+        },
+        {
+          "id": "danger",
+          "type": "regex_all",
+          "patterns": [
+            "撤销|回收站|恢复",
+            "确认"
+          ]
+        },
+        {
+          "id": "long-task",
+          "type": "regex_all",
+          "patterns": [
+            "进度",
+            "后台|刷新后|通知"
+          ]
+        },
+        {
+          "id": "billing",
+          "type": "regex_any",
+          "patterns": [
+            "扣.{0,6}(多少|点数).{0,20}(之前|前|预估|显示)",
+            "(预估|提前|事前).{0,10}(扣|点数|费用)",
+            "(点数|费用).{0,6}明细",
+            "用量记录|消费记录|消耗多少|将消耗"
+          ]
+        },
+        {
+          "id": "glossary",
+          "type": "regex_any",
+          "patterns": [
+            "术语表|词表|glossary"
+          ]
+        },
+        {
+          "id": "promise",
+          "type": "regex_all",
+          "patterns": [
+            "注册|邀请",
+            "官网|落地页|承诺"
+          ]
+        },
+        {
+          "id": "references",
+          "type": "regex_all",
+          "patterns": [
+            "引用|在用",
+            "跳转|点开|链接|列出|查看|点击看到"
+          ]
+        },
+        {
+          "id": "permissions",
+          "type": "regex_any",
+          "patterns": [
+            "权限.{0,20}(隐藏|置灰|不显示|说明原因)|(隐藏|不显示).{0,20}权限"
+          ]
+        },
+        {
+          "id": "severity",
+          "type": "regex_any",
+          "patterns": [
+            "P0"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 4,
+      "name": "empty-error-dialog-notification-copy",
+      "prompt": "Write the UI copy (Chinese and English) for our photo backup app 'Tidal': (a) empty state of the Albums tab for a new user, (b) upload failed because the network dropped — photos are still safe on the phone, (c) confirmation dialog for deleting an album that contains 240 photos (photos stay in the library, only the album goes away), (d) a push notification when a backup of 1,200 photos finishes. Current drafts are: 'Oops! Nothing here yet~', 'Error 503: Upload failed. Please try again later.', 'Are you sure? [Yes] [No]', 'Tidal: Task completed successfully!'",
+      "expected_output": "Copy for all four states in both languages; no Oops/apology/error codes up front; error says what happened, data safety, next step; dialog title asks the specific question, buttons are specific verbs with destructive marked, explains consequence (photos stay); notification states result concretely; no 'we'.",
+      "files": [],
+      "assertions": [
+        "Covers all four states (a-d) in both Chinese and English",
+        "Empty state explains how content will appear and offers one action",
+        "Error removes the code/Oops, reassures photos are safe and gives a next step (auto-retry or retry)",
+        "Dialog uses specific action buttons (e.g. Delete Album / Cancel) instead of Yes/No and states photos remain in library",
+        "Notification states the concrete result (1,200 photos) without exclamation filler",
+        "Does not use 'we/我们' in UI copy"
+      ],
+      "checks": [
+        {
+          "id": "four-states",
+          "type": "regex_all",
+          "patterns": [
+            "\\(a\\)|（a）|a\\)|Empty|空状态",
+            "\\(b\\)|（b）|b\\)|Error|报错",
+            "\\(c\\)|（c）|c\\)|Dialog|确认",
+            "\\(d\\)|（d）|d\\)|Notification|通知"
+          ]
+        },
+        {
+          "id": "bilingual",
+          "type": "regex_all",
+          "patterns": [
+            "[\\u4e00-\\u9fff]{4,}",
+            "[A-Za-z]{4,} [A-Za-z]{3,}"
+          ]
+        },
+        {
+          "id": "no-oops",
+          "type": "regex_none_in_final",
+          "patterns": [
+            "Oops!",
+            "Error 503:",
+            "\\[Yes\\]"
+          ]
+        },
+        {
+          "id": "safe",
+          "type": "regex_any",
+          "patterns": [
+            "still on (your|this) (phone|iPhone|device)|safe on|仍在手机|还在手机|安全"
+          ]
+        },
+        {
+          "id": "specific-buttons",
+          "type": "regex_any",
+          "patterns": [
+            "Delete Album",
+            "删除相簿"
+          ]
+        },
+        {
+          "id": "photos-stay",
+          "type": "regex_any",
+          "patterns": [
+            "stay in|remain in|留在|仍在.{0,4}(图库|照片)"
+          ]
+        },
+        {
+          "id": "notification-number",
+          "type": "regex_any",
+          "patterns": [
+            "1,200|1200"
+          ]
+        },
+        {
+          "id": "no-we",
+          "type": "regex_none_in_final",
+          "patterns": [
+            "\\bWe\\b",
+            "\\bwe\\b",
+            "我们"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 5,
+      "name": "keynote-and-product-page-hero",
+      "prompt": "我们下个月发布一款桌面智能台灯「Halo」。参数：自动跟随环境光调色温 2700–6500K、无频闪、坐姿提醒、APP 远程控制、续航（电池版）12 小时、重 800g、6 项专利、获设计奖。帮我写：1）产品页首屏（中英文）；2）发布会开场 3 分钟的结构和关键台词。别堆参数。",
+      "expected_output": "Hero with clever headline + plain subhead + one CTA in both languages (transcreated, not translated); keynote structure: tension line → rule of three or single story → demo per point → one big number with footnote → return to opening → one more thing → price/availability; parameters moved to evidence/spec; no unprovable superlatives.",
+      "files": [],
+      "assertions": [
+        "Hero has a short headline, a plain subhead and one CTA",
+        "Provides both Chinese and English hero, transcreated rather than literally translated",
+        "Keynote opening has a tension/problem line, a small number of key points, a demo per point",
+        "Uses exactly one hero number with a conditions footnote",
+        "Moves specs (6 patents, 800g, award) out of the hero into evidence/spec",
+        "Avoids unprovable superlatives (最/第一/best)"
+      ],
+      "checks": [
+        {
+          "id": "bilingual-hero",
+          "type": "regex_all",
+          "patterns": [
+            "[\\u4e00-\\u9fff]{4,}",
+            "[A-Z][a-z]+[ .]"
+          ]
+        },
+        {
+          "id": "subhead",
+          "type": "regex_any",
+          "patterns": [
+            "副标|Subhead|subhead|Sub:"
+          ]
+        },
+        {
+          "id": "cta",
+          "type": "regex_any",
+          "patterns": [
+            "按钮|CTA|Buy|购买|预订|Pre-order"
+          ]
+        },
+        {
+          "id": "keynote-structure",
+          "type": "regex_all",
+          "patterns": [
+            "演示|demo|Demo",
+            "开场|冲突|开头"
+          ]
+        },
+        {
+          "id": "footnote",
+          "type": "regex_any",
+          "patterns": [
+            "脚注|¹|footnote"
+          ]
+        },
+        {
+          "id": "specs-moved",
+          "type": "regex_any",
+          "patterns": [
+            "规格页|放到.{0,6}(后面|最后|规格)|证据|spec"
+          ]
+        },
+        {
+          "id": "no-superlative",
+          "type": "regex_none_in_final",
+          "patterns": [
+            "最强|第一款|全球首|best ever|world's best"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 6,
+      "name": "localization-transcreation",
+      "prompt": "Our English site for the travel mug 'Thermo' uses these lines. Please localize them for the mainland China site (not translate) and explain each choice: 1) 'Hot take. Cold brew.' 2) 'The world's best travel mug.' 3) 'Keeps coffee hot for 12 hours.¹' 4) Button: 'Get yours'.",
+      "expected_output": "Chinese transcreations that rebuild the wordplay with Chinese devices (对仗/四字格/同字), replace the unprovable superlative per 广告法 with a provable claim, keep number with footnote and add Chinese-English spacing rules, and render the button as a clear verb (购买/选购).",
+      "files": [],
+      "assertions": [
+        "Explains it is transcreation and rebuilds pun with a Chinese rhetorical device",
+        "Removes 'world's best' for China citing advertising-law superlative restrictions and substitutes a provable claim",
+        "Keeps the 12-hour number with footnote/test conditions",
+        "Button becomes a clear Chinese verb",
+        "Mentions spacing between Chinese and Latin/numbers"
+      ],
+      "checks": [
+        {
+          "id": "device",
+          "type": "regex_any",
+          "patterns": [
+            "对仗|四字|同字|双关|谐音|parallel|pun"
+          ]
+        },
+        {
+          "id": "ad-law",
+          "type": "regex_any",
+          "patterns": [
+            "广告法|极限词|最高级|Advertising Law|superlative"
+          ]
+        },
+        {
+          "id": "footnote",
+          "type": "regex_all",
+          "patterns": [
+            "12",
+            "¹|脚注|测试条件"
+          ]
+        },
+        {
+          "id": "button-verb",
+          "type": "regex_any",
+          "patterns": [
+            "购买|选购|立即购买|买一个"
+          ]
+        },
+        {
+          "id": "spacing",
+          "type": "regex_any",
+          "patterns": [
+            "空格|间距|混排|spacing|space between"
+          ]
+        }
+      ]
+    },
+    {
+      "id": 7,
+      "name": "cross-platform-specs",
+      "prompt": "我们同一套设计要同时出 iOS App 和 Web 版（React）。设计师问：按钮最小多大？正文用多大字号？对比度要求多少？要不要做减弱动效？焦点样式怎么定？请分别给 iOS 和 Web 的标准，并注明依据。",
+      "expected_output": "A mapping table: iOS 44×44pt (HIG) vs Web 24×24 CSS px AA minimum (WCAG 2.5.8) with 44×44 as AAA/recommended; body 17pt iOS vs ~16px web base (convention, not WCAG requirement); contrast 4.5:1/3:1 for both (WCAG 1.4.3), non-text 3:1 (1.4.11); Reduce Motion vs prefers-reduced-motion (2.3.3 AAA); focus visible (2.4.7) and focus not obscured (2.4.11); cites sources and flags what is convention vs requirement.",
+      "files": [],
+      "assertions": [
+        "Gives separate iOS and Web values in a mapping",
+        "Web target size cites WCAG 2.5.8 24×24 CSS px (AA) and distinguishes 44×44 (2.5.5 AAA)",
+        "Contrast 4.5:1 normal / 3:1 large text, and 3:1 for UI components",
+        "Maps Reduce Motion to prefers-reduced-motion",
+        "Covers focus visible / not obscured on web",
+        "Distinguishes hard requirements from conventions and cites sources"
+      ],
+      "checks": [
+        {
+          "id": "ios-44",
+          "type": "regex_any",
+          "patterns": [
+            "44\\s*[×x]\\s*44\\s*pt|44pt"
+          ]
+        },
+        {
+          "id": "web-24",
+          "type": "regex_all",
+          "patterns": [
+            "24\\s*[×x]\\s*24",
+            "2\\.5\\.8"
+          ]
+        },
+        {
+          "id": "aaa-44",
+          "type": "regex_any",
+          "patterns": [
+            "2\\.5\\.5|AAA"
+          ]
+        },
+        {
+          "id": "contrast",
+          "type": "regex_all",
+          "patterns": [
+            "4\\.5\\s*:\\s*1",
+            "3\\s*:\\s*1"
+          ]
+        },
+        {
+          "id": "non-text",
+          "type": "regex_any",
+          "patterns": [
+            "1\\.4\\.11|非文本|控件.{0,6}3\\s*:\\s*1"
+          ]
+        },
+        {
+          "id": "reduced-motion",
+          "type": "regex_any",
+          "patterns": [
+            "prefers-reduced-motion"
+          ]
+        },
+        {
+          "id": "focus",
+          "type": "regex_all",
+          "patterns": [
+            "2\\.4\\.7|焦点可见|focus-visible",
+            "2\\.4\\.11|遮挡"
+          ]
+        },
+        {
+          "id": "sources",
+          "type": "regex_any",
+          "patterns": [
+            "w3\\.org|developer\\.apple\\.com"
+          ]
+        }
+      ]
+    }
+  ],
+  "grading_changelog": "iteration-1 (after first baseline read-through): widened 5 regexes that produced false negatives on wording variants (headline-options, billing, count-pagination, promise, references) and excluded meta-commentary lines from regex_none checks. Changed before any new-skill output existed. Also added English synonyms to the 3 localization checks so English-language answers are not penalized."
+}

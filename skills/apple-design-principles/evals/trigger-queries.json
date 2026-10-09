@@ -1,0 +1,26 @@
+{
+  "skill_name": "apple-design-principles",
+  "notes": "10 should-trigger + 10 near-miss should-not-trigger queries, mixed Chinese/English. All fictional.",
+  "queries": [
+    {"id": "t01", "query": "帮我看看这个设置页截图哪里不够苹果风，给个问题清单", "should_trigger": true},
+    {"id": "t02", "query": "Our pricing page feels cluttered. Can you critique the layout and hierarchy and suggest what to cut?", "should_trigger": true},
+    {"id": "t03", "query": "把这段产品介绍改得更像发布会文案：我们的耳机采用 6 麦克风阵列和自研芯片，降噪深度 48dB", "should_trigger": true},
+    {"id": "t04", "query": "rewrite these error messages so they're clearer: 'Error 500', 'Invalid input', 'Operation failed'", "should_trigger": true},
+    {"id": "t05", "query": "这个后台管理页按钮太多、颜色乱，帮我按做减法的思路审一遍", "should_trigger": true},
+    {"id": "t06", "query": "Write an empty state and an onboarding tooltip for our task app, Chinese and English", "should_trigger": true},
+    {"id": "t07", "query": "landing page hero 标题怎么写更有记忆点？现在是「新一代智能协同平台」", "should_trigger": true},
+    {"id": "t08", "query": "Is 13px #999 text on white OK for our web app? Also our icon buttons are 20px. Accessibility review please.", "should_trigger": true},
+    {"id": "t09", "query": "Localize our English tagline 'Built for the bold' for the China site, don't just translate", "should_trigger": true},
+    {"id": "t10", "query": "删除确认弹窗的标题和按钮应该怎么写？现在是「确定要删除吗？ 是 / 否」", "should_trigger": true},
+    {"id": "n01", "query": "帮我写一个 React 组件，实现可拖拽排序的列表", "should_trigger": false},
+    {"id": "n02", "query": "What are Apple's Q3 earnings and how did iPhone revenue change?", "should_trigger": false},
+    {"id": "n03", "query": "我的 iPhone 升级 iOS 后耗电很快，怎么办", "should_trigger": false},
+    {"id": "n04", "query": "Design a PostgreSQL schema for orders, invoices and refunds", "should_trigger": false},
+    {"id": "n05", "query": "把这篇技术博客翻译成英文，保持原意", "should_trigger": false},
+    {"id": "n06", "query": "How do I submit my app to the App Store and fix the 'missing privacy manifest' rejection?", "should_trigger": false},
+    {"id": "n07", "query": "生成一张赛博朋克风格的海报，霓虹色，越炫越好", "should_trigger": false},
+    {"id": "n08", "query": "Write a SwiftUI view model that fetches data with async/await and caches it", "should_trigger": false},
+    {"id": "n09", "query": "帮我写一封给投资人的季度更新邮件", "should_trigger": false},
+    {"id": "n10", "query": "Fix the failing CSS build: 'Unknown at rule @tailwind'", "should_trigger": false}
+  ]
+}
